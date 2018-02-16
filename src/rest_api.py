@@ -18,14 +18,17 @@ def create_app(config='config'):
 
     return app
 
+def init_flags():
+    parser = optparse.OptionParser()
+
+    #parser.add_option("-T", "--test", help="test", dest="test", default=default_host)
+    parser.add_option("-H", "--host", help="Hostname of the Flask app [default %s]" % default_host, default=default_host)
+    parser.add_option("-P", "--port", help="Port of the Flask app [default %s]" % default_port, default=default_port)
+
+    return parser.parse_args()
+
 app = create_app()
-
-parser = optparse.OptionParser()
-
-parser.add_option("-H", "--host", help="Hostname of the Flask app [default %s]" % default_host, default=default_host)
-parser.add_option("-P", "--port", help="Port of the Flask app [default %s]" % default_port, default=default_port)
-
-options, _ = parser.parse_args()
+options, args = init_flags()
 
 if __name__ == '__main__':
     app.run(threaded=True, host=options.host, port=int(options.port))
