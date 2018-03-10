@@ -4,7 +4,7 @@ import os.path
 from flask import Flask
 import optparse
 
-from status.server_status import blueprint as status_blueprint
+from status.endpoints import blueprint as status_blueprint
 
 default_host = '127.0.0.1'
 default_port = '5000'
@@ -21,7 +21,6 @@ def create_app(config='config'):
 def init_flags():
     parser = optparse.OptionParser()
 
-    #parser.add_option("-T", "--test", help="test", dest="test", default=default_host)
     parser.add_option("-H", "--host", help="Hostname of the Flask app [default %s]" % default_host, default=default_host)
     parser.add_option("-P", "--port", help="Port of the Flask app [default %s]" % default_port, default=default_port)
 
