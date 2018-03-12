@@ -2,14 +2,14 @@
 "   Created by: Josh on 10/03/18
 """
 import os
-import subprocess
 import platform
+import subprocess
 
 PASS = 200
 ERROR = 400
 
 def api():
-    from src.rest_api import options
+    from rest_api import options
     return {
         "name": "API",
         "status": "True",

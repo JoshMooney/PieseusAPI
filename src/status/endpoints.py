@@ -3,7 +3,10 @@
 """
 
 from flask import Blueprint, jsonify, current_app, request, Response, stream_with_context, url_for
-from src.status.server_status import *
+from src.status.server import *
+from src.status.jblog_endpoints import get_actions as jblog_get_actions
+from src.status.resume_endpoints import get_actions as resume_get_actions
+from src.status.api_endpoints import get_actions as api_get_actions
 
 blueprint = Blueprint('server_status', __name__, url_prefix='/status')
 
@@ -16,9 +19,10 @@ def status():
 @blueprint.route('/actions')
 def get_actions():
     actions = {
+        'api': url_for('.status'),
+        'actions': url_for('.check_mounted_drives'),
         'mounted-drives': url_for('.check_mounted_drives'),
         'teamviewer': url_for('.check_teamviewer'),
-        'api': url_for('.status'),
         'vnc-server': url_for('.check_vnc_server'),
         'server': url_for('.check_server'),
         'uptime': url_for('.check_uptime'),
@@ -75,3 +79,7 @@ def check_samba():
 @blueprint.route('/transmission')
 def check_transmission():
     return jsonify({ "transmission-daemon": transmission() }), 200
+
+
+
+
