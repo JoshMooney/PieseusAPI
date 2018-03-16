@@ -7,7 +7,7 @@ import subprocess
 
 # Global Varibles
 PROJECT_DIR = "/home/pi/Project"
-LOG_DIR = "/home/pi/Project/_logs"
+LOG_DIR = "/home/pi/_logs"
 LOG_FILE_NAME = "log.%s.txt"
 NOHUP_CMD = "nohup %s &"
 PYTHON_CMD = "python %s > %s"
