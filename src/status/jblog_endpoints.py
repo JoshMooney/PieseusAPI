@@ -4,9 +4,9 @@
 
 from flask import Blueprint, jsonify, url_for
 
-from src.status.access import MicroserviceAccess, Access
+from status.access import MicroserviceAccess, Access
 #from src.config import *
-import src.config as CONFIG
+import config as CONFIG
 
 blueprint = Blueprint('jblog_status', __name__, url_prefix='/status/jblog')
 service_name = "JBlog"

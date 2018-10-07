@@ -4,8 +4,8 @@
 
 from flask import Blueprint, jsonify, url_for
 
-from src.status.access import MicroserviceAccess, Access
-import src.config as CONFIG
+from status.access import MicroserviceAccess, Access
+import config as CONFIG
 
 blueprint = Blueprint('resume_status', __name__, url_prefix='/status/resume')
 service_name = "Resume"

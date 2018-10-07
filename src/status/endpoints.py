@@ -3,10 +3,10 @@
 """
 
 from flask import Blueprint, jsonify, current_app, request, Response, stream_with_context, url_for
-from src.status.server import *
-from src.status.jblog_endpoints import get_actions as jblog_get_actions
-from src.status.resume_endpoints import get_actions as resume_get_actions
-from src.status.api_endpoints import get_actions as api_get_actions
+from status.server import *
+from status.jblog_endpoints import get_actions as jblog_get_actions
+from status.resume_endpoints import get_actions as resume_get_actions
+from status.api_endpoints import get_actions as api_get_actions
 
 blueprint = Blueprint('server_status', __name__, url_prefix='/status')
 
