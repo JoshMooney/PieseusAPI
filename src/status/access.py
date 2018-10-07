@@ -8,7 +8,7 @@ class Access(object):
         self._endpoint = endpoint
 
     def url(self):
-        url = ""
+        url = "http://"
         if not self._ip:
             return
         else:
